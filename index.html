@@ -47,6 +47,8 @@
         .logo-img {
             height: 45px;
             width: auto;
+            /* Garante visibilidade se o logo for preto */
+            filter: brightness(0) invert(1);
         }
 
         nav a {
@@ -152,6 +154,8 @@
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .service-card:hover {
@@ -169,6 +173,7 @@
             list-style: none;
             padding: 0;
             color: var(--text-muted);
+            margin-top: auto;
         }
 
         .service-card li {
@@ -249,6 +254,7 @@
         .footer-logo {
             height: 60px;
             margin-bottom: 2rem;
+            filter: brightness(0) invert(1);
         }
 
         .footer-contacts {
@@ -346,6 +352,26 @@
                 <li>Planejamento Estratégico e OKRs</li>
                 <li>Gestão de Riscos e Cenários Econômicos</li>
                 <li>Workshops de Finanças Corporativas</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <h3>PALESTRAS</h3>
+            <p>Inspiração e conhecimento técnico de ponta para eventos corporativos e acadêmicos sobre Economia e Tecnologia.</p>
+            <ul>
+                <li>Inovação e Futuro do Trabalho</li>
+                <li>Cenários Econômicos para Investidores</li>
+                <li>Cultura de Proteção de Dados</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <h3>GESTÃO DO CONHECIMENTO</h3>
+            <p>Estruturação de processos para retenção de capital intelectual e aumento da eficiência operacional.</p>
+            <ul>
+                <li>Mapeamento de Processos Críticos</li>
+                <li>Curadoria de Conteúdo Educativo</li>
+                <li>Implementação de Ferramentas de IA</li>
             </ul>
         </div>
     </div>

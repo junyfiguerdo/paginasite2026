@@ -47,7 +47,7 @@
         .logo-img {
             height: 45px;
             width: auto;
-            /* Garante visibilidade se o logo for preto */
+            /* Inverte a cor para aparecer no fundo preto caso o original seja escuro */
             filter: brightness(0) invert(1);
         }
 
@@ -166,7 +166,15 @@
         .service-card h3 {
             color: var(--accent);
             margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
         }
 
         .service-card ul {
@@ -179,13 +187,15 @@
         .service-card li {
             margin-bottom: 0.8rem;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
+            font-size: 0.9rem;
         }
 
         .service-card li::before {
             content: "→";
             margin-right: 10px;
             color: var(--accent);
+            font-weight: bold;
         }
 
         .impact-section {
@@ -290,9 +300,8 @@
 
 <header>
     <div class="logo-container">
-        <!-- Logo e Símbolo no Header -->
         <a href="#"><img src="logo.png" alt="Figueredo Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"></a>
-        <span style="display:none; font-weight:800; font-size:1.5rem; letter-spacing:2px;">FIGUEREDO</span>
+        <span style="display:none; font-weight:800; font-size:1.5rem; letter-spacing:2px; color:white;">FIGUEREDO</span>
     </div>
     <nav>
         <a href="#servicos">Soluções</a>
@@ -339,9 +348,20 @@
             <h3>ÓRGÃOS PÚBLICOS</h3>
             <p>Consultoria técnica especializada para modernização e gestão eficiente da administração pública.</p>
             <ul>
-                <li>Projetos e Modernização Administrativa</li>
-                <li>Gestão de Desenvolvimento Econômico</li>
+                <li>Modernização Administrativa</li>
                 <li>Adequação LGPD no Setor Público</li>
+                <li>Gestão de Eficiência Governamental</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <h3>DESENVOLVIMENTO URBANO</h3>
+            <h3>PROJETOS PARA CIDADES</h3>
+            <p>Estratégias de desenvolvimento econômico sustentável para municípios e regiões.</p>
+            <ul>
+                <li>Planos Diretores de Desenvolvimento</li>
+                <li>Atração de Investimentos Regionais</li>
+                <li>Estudos de Viabilidade Econômica</li>
             </ul>
         </div>
 
@@ -350,24 +370,24 @@
             <p>Consultoria econômica de alto nível para otimização de capital e maximização de resultados.</p>
             <ul>
                 <li>Planejamento Estratégico e OKRs</li>
-                <li>Gestão de Riscos e Cenários Econômicos</li>
+                <li>Gestão de Riscos e Cenários</li>
                 <li>Workshops de Finanças Corporativas</li>
             </ul>
         </div>
 
         <div class="service-card">
             <h3>PALESTRAS</h3>
-            <p>Inspiração e conhecimento técnico de ponta para eventos corporativos e acadêmicos sobre Economia e Tecnologia.</p>
+            <p>Inspiração e conhecimento técnico de ponta para eventos corporativos e acadêmicos.</p>
             <ul>
                 <li>Inovação e Futuro do Trabalho</li>
-                <li>Cenários Econômicos para Investidores</li>
+                <li>Cenários Econômicos Globais</li>
                 <li>Cultura de Proteção de Dados</li>
             </ul>
         </div>
 
         <div class="service-card">
             <h3>GESTÃO DO CONHECIMENTO</h3>
-            <p>Estruturação de processos para retenção de capital intelectual e aumento da eficiência operacional.</p>
+            <p>Estruturação de processos para retenção de capital intelectual e aumento da eficiência.</p>
             <ul>
                 <li>Mapeamento de Processos Críticos</li>
                 <li>Curadoria de Conteúdo Educativo</li>
@@ -414,7 +434,6 @@
 
 <footer>
     <div class="footer-logo-container">
-        <!-- Logo no Footer -->
         <img src="logo.png" alt="Figueredo Logo" class="footer-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <h2 style="display:none; color:white; letter-spacing:5px;">FIGUEREDO</h2>
     </div>

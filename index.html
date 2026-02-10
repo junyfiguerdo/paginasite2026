@@ -1,114 +1,388 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Figueredo Finanças e Tecnologia | LGPD, Finanças, Power BI e Estratégia</title>
-  <meta name="description" content="Consultoria em LGPD, DPO as a Service, finanças, Power BI, planejamento estratégico, apps e IA. Transformando dados em oportunidades para empresas e pessoas.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body { font-family: system-ui,-apple-system,sans-serif; margin:0; color:#1f2933; }
-    header, section { padding:60px 20px; }
-    .container { max-width:1120px; margin:0 auto; }
-    h1,h2,h3 { color:#153e75; margin-top:0; }
-    h1 { font-size:2.6rem; }
-    h2 { font-size:2rem; margin-bottom:1rem; }
-    p { line-height:1.6; margin:.3rem 0 1rem; }
-    .hero { display:flex; flex-wrap:wrap; align-items:center; gap:40px; background:#0b1220; color:#e5e7eb; }
-    .hero h1 { color:#e5e7eb; }
-    .hero-slogan { font-weight:600; color:#38bdf8; margin-bottom:8px; }
-    .hero-text { flex:1 1 320px; }
-    .btn-primary { display:inline-block; padding:12px 24px; border-radius:999px; background:#22c55e; color:#0b1220; font-weight:600; text-decoration:none; }
-    .btn-primary:hover { background:#16a34a; }
-    .grid-3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; }
-    .card { background:#ffffff; border-radius:12px; box-shadow:0 10px 25px rgba(15,23,42,.06); padding:24px; }
-    .section-alt { background:#f3f4f6; }
-    .tag { font-size:.8rem; padding:4px 10px; border-radius:999px; background:#e0f2fe; color:#0369a1; }
-    footer { background:#020617; color:#9ca3af; padding:40px 20px; }
-    footer a { color:#93c5fd; text-decoration:none; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figueredo Finanças e Tecnologia | Transformando Dados em Oportunidades</title>
+    <style>
+        :root {
+            --primary: #020617;
+            --secondary: #0b1220;
+            --accent: #c28d4e;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --success: #22c55e;
+        }
+        
+        body {
+            margin: 0;
+            font-family: "Inter", system-ui, -apple-system, sans-serif;
+            background-color: var(--primary);
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        header {
+            background-color: var(--primary);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: -0.025em;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 24px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover { color: var(--accent); }
+
+        .hero {
+            position: relative;
+            padding: 100px 40px;
+            background: linear-gradient(rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.8)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin: 0;
+            max-width: 800px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin: 24px 0 40px;
+            max-width: 600px;
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 16px 32px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        section { padding: 80px 40px; }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            margin-top: 12px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--secondary);
+            border: 1px solid #1e293b;
+            padding: 40px;
+            border-radius: 8px;
+            transition: border-color 0.2s;
+        }
+
+        .card:hover { border-color: var(--accent); }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin: 0 0 16px;
+            color: var(--accent);
+        }
+
+        .card ul {
+            padding: 0;
+            list-style: none;
+            margin: 20px 0 0;
+        }
+
+        .card li {
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+            color: var(--text-muted);
+        }
+
+        .card li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .advantage {
+            background-color: #0f172a;
+            padding: 12px 16px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--success);
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+
+        .testimonials {
+            background-color: #0b1220;
+        }
+
+        .testimonial-card {
+            background-color: var(--primary);
+            padding: 32px;
+            border-radius: 8px;
+            font-style: italic;
+        }
+
+        .testimonial-card span {
+            display: block;
+            margin-top: 20px;
+            font-style: normal;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .about-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            flex: 1 1 400px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            display: block;
+        }
+
+        .about-content { flex: 1 1 500px; }
+
+        footer {
+            background-color: #020617;
+            padding: 60px 40px;
+            border-top: 1px solid #1e293b;
+            text-align: center;
+        }
+
+        .footer-links { margin-bottom: 40px; }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 16px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            header { padding: 20px; }
+            nav { display: none; }
+        }
+    </style>
 </head>
 <body>
-<header class="hero">
-  <div class="container hero">
-    <div class="hero-text">
-      <div class="hero-slogan">Transformando dados em oportunidades.</div>
-      <h1>Figueredo Finanças e Tecnologia</h1>
-      <p>Consultoria em LGPD, DPO as a Service, finanças, Power BI, planejamento estratégico, criação de apps e soluções em IA.</p>
-      <a href="#contato" class="btn-primary">Agendar conversa gratuita</a>
-    </div>
-  </div>
+
+<header>
+    <div class="logo">FIGUEREDO</div>
+    <nav>
+        <a href="#servicos">SOLUÇÕES</a>
+        <a href="#sobre">SOBRE</a>
+        <a href="#depoimentos">CASES</a>
+        <a href="#contato" style="background: var(--accent); color: var(--primary); padding: 8px 16px; border-radius: 4px;">APLIQUE-SE</a>
+    </nav>
 </header>
-<main>
-<section id="sobre">
-  <div class="container">
-    <span class="tag">Sobre</span>
-    <h2>Quem é Juny Figueredo</h2>
-    <p>A Figueredo Finanças e Tecnologia integra finanças, tecnologia e estratégia. Liderada por Juny Figueredo, economista com experiência em LGPD, análise econômica, Power BI e desenvolvimento de soluções digitais.</p>
-    <h3>Formação e Certificações</h3>
-    <ul>
-      <li><strong>Mestrando em Gestão Financeira Internacional</strong> – Porto, Portugal</li>
-      <li><strong>Pós-Graduando em Exercising Leadership Foundational Principles</strong> – Harvard University, EUA</li>
-      <li><strong>Pós-Graduado em Administração de Pequenas e Médias Empresas</strong> – Unorp</li>
-      <li><strong>Pós-Graduado em Balanced Scorecard</strong> – Fundação Getúlio Vargas</li>
-      <li><strong>Pós-Graduado em Gestão de Finanças Empresariais</strong> – FGV</li>
-      <li><strong>Pós-Graduado em Tecnologia da Informação</strong> – FGV</li>
-      <li><strong>Pós-Graduado em Planejamento e Gestão de EAD</strong> – UFF</li>
-      <li><strong>Certificação Internacional DPO Data Protection Officer</strong></li>
-      <li><strong>Certificações: CPA-20, CPA-10, Cisco CCNA, Linux, Gestão de Riscos</strong></li>
-    </ul>
-    <p><strong>Economista</strong> da Secretaria de Desenvolvimento Econômico – Prefeitura de Votuporanga</p>
-    <p><strong>Docente</strong> em Economia, Finanças, Gestão Estratégica, Proteção de Dados, LGPD, BI e Tecnologias Smart City em Faculdade Futura, Fundação Educacional de Fernandópolis, Universidade Fernando Pessoa (Porto, Portugal).</p>
-  </div>
-</section>
-<section id="lgpd" class="section-alt">
-  <div class="container">
-    <span class="tag">LGPD e DPO</span>
-    <h2>Proteção de dados e conformidade com a LGPD</h2>
-    <div class="grid-3">
-      <div class="card"><h3>Diagnóstico e mapeamento</h3><p>Levantamento de fluxos de dados pessoais, análise de riscos e plano de ação.</p></div>
-      <div class="card"><h3>Implementação completa</h3><p>Políticas, termos, contratos e procedimentos práticos para adequação à LGPD.</p></div>
-      <div class="card"><h3>DPO terceirizado</h3><p>Atuação contínua como encarregado de dados, relatórios e treinamentos.</p></div>
+
+<div class="hero">
+    <div class="hero-slogan" style="color: var(--accent); font-weight: 700; letter-spacing: 0.2em; margin-bottom: 16px;">TRANSFORMANDO DADOS EM OPORTUNIDADES</div>
+    <h1>O motor de crescimento orientado a dados para sua empresa</h1>
+    <p>Unimos economia, tecnologia e estratégia para implementar proteção de dados, analytics e inteligência financeira de alto impacto.</p>
+    <a href="#contato" class="btn">Falar com um especialista</a>
+</div>
+
+<section id="servicos">
+    <div class="section-title">
+      <span style="color: var(--accent); font-weight: 700;">SOLUÇÕES EMPRESARIAIS</span>
+      <h2>Nossas Especialidades</h2>
     </div>
-  </div>
-</section>
-<section id="financas">
-  <div class="container">
-    <span class="tag">Finanças e Investimentos</span>
-    <h2>Consultoria financeira e econômica</h2>
-    <div class="grid-3">
-      <div class="card"><h3>Planejamento financeiro pessoal</h3><p>Orçamento, reserva de emergência e primeiros passos em investimentos.</p></div>
-      <div class="card"><h3>Consultoria empresarial</h3><p>Estruturação financeira, indicadores e painéis gerenciais.</p></div>
-      <div class="card"><h3>Planejamento estratégico</h3><p>Construção de planejamento, execução e revisão de indicadores.</p></div>
+    <div class="grid">
+        <div class="card">
+            <div class="advantage">Vantagem: Segurança Jurídica e Confiança</div>
+            <h3>LGPD & DPO as a Service</h3>
+            <p>Adequação completa e gestão de privacidade para mitigar riscos e fortalecer a marca.</p>
+            <ul>
+                <li>Mapeamento de fluxos e diagnóstico</li>
+                <li>Implementação de políticas e processos</li>
+                <li>Monitoramento contínuo e gestão de incidentes</li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="advantage">Vantagem: Decisões em Tempo Real</div>
+            <h3>Power BI & Analytics</h3>
+            <p>Dashboards estratégicos que transformam números brutos em visão clara para diretoria.</p>
+            <ul>
+                <li>Conexão de múltiplas fontes de dados</li>
+                <li>Indicadores financeiros e operacionais</li>
+                <li>Treinamento de equipes para cultura de dados</li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="advantage">Vantagem: Crescimento Sustentável</div>
+            <h3>Planejamento & Estratégia</h3>
+            <p>Administração estratégica focada em resultados e escala de negócios.</p>
+            <ul>
+                <li>Estruturação de OKRs e metas</li>
+                <li>Gestão de riscos e cenários econômicos</li>
+                <li>Acompanhamento de execução estratégica</li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="advantage">Vantagem: Eficiência Operacional</div>
+            <h3>Apps & Automações</h3>
+            <p>Criação de ferramentas sob medida para eliminar gargalos e acelerar processos.</p>
+            <ul>
+                <li>Desenvolvimento de apps internos</li>
+                <li>Automação de rotinas repetitivas</li>
+                <li>Integração de sistemas legados</li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="advantage">Vantagem: Inteligência Financeira</div>
+            <h3>Finanças & Investimentos</h3>
+            <p>Consultoria econômica para gestão de capital e otimização de rentabilidade.</p>
+            <ul>
+                <li>Gestão de fluxo de caixa e custos</li>
+                <li>Estratégias de investimento corporativo</li>
+                <li>Análise de viabilidade de projetos</li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="advantage">Vantagem: Capital Intelectual</div>
+            <h3>Cursos & Treinamentos</h3>
+            <p>Capacitação técnica em finanças, dados e proteção para elevar o nível do time.</p>
+            <ul>
+                <li>Educação financeira corporativa</li>
+                <li>Treinamentos in-company em LGPD</li>
+                <li>Workshops de BI e Dados</li>
+            </ul>
+        </div>
     </div>
-  </div>
 </section>
-<section id="dados" class="section-alt">
-  <div class="container">
-    <span class="tag">Power BI e Tecnologia</span>
-    <h2>Power BI, apps, IA e gestão de tecnologia</h2>
-    <div class="grid-3">
-      <div class="card"><h3>Power BI para empresas</h3><p>Dashboards personalizados, modelagem de dados e treinamentos.</p></div>
-      <div class="card"><h3>Criação de apps</h3><p>Desenvolvimento de apps sob medida e automações.</p></div>
-      <div class="card"><h3>IA e gestão de redes</h3><p>Implementação de IA, chatbots e gestão de infraestrutura digital.</p></div>
+
+<section id="sobre" class="section-alt" style="background-color: #0b1220;">
+    <div class="about-section">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1974" alt="Juny Figueredo - Liderança">
+        </div>
+        <div class="about-content">
+            <span style="color: var(--accent); font-weight: 700;">SOBRE A LIDERANÇA</span>
+            <h2 style="font-size: 3rem; margin: 10px 0 30px;">Juny Figueredo</h2>
+            <p>Economista com visão global e técnica. Mestrando em Gestão Financeira (Porto), certificado por Harvard em Liderança e com múltiplas pós-graduações pela FGV.</p>
+            <p>Combinamos o rigor da análise econômica com a agilidade da tecnologia para entregar soluções que não apenas protegem, mas impulsionam negócios.</p>
+            <div style="display: flex; gap: 20px; margin-top: 30px;">
+              <div style="border-left: 2px solid var(--accent); padding-left: 15px;">
+                <strong style="display: block; font-size: 1.5rem;">FGV</strong>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">BSC, Finanças e TI</span>
+              </div>
+              <div style="border-left: 2px solid var(--accent); padding-left: 15px;">
+                <strong style="display: block; font-size: 1.5rem;">Harvard</strong>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Liderança</span>
+              </div>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
-<section id="contato">
-  <div class="container" style="text-align:center;">
-    <h2>Vamos transformar dados em oportunidades?</h2>
-    <p><strong>WhatsApp:</strong> <a href="https://wa.me/5517981361149">(17) 98136-1149</a></p>
-    <p><strong>E-mail:</strong> <a href="mailto:juny@figueredoconsultoria.com.br">juny@figueredoconsultoria.com.br</a> | <a href="mailto:claudiojuny@gmail.com">claudiojuny@gmail.com</a></p>
-    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/juny-figueredo-36b19634" target="_blank">linkedin.com/in/juny-figueredo</a></p>
-    <p><strong>Instagram:</strong> @JunyFigueredo | @CarteiraMailRica</p>
-    <p><strong>Site:</strong> <a href="http://www.figueredoconsultoria.com.br">www.figueredoconsultoria.com.br</a></p>
-  </div>
+
+<section id="depoimentos" class="testimonials">
+    <div class="section-title">
+      <h2>O que dizem os líderes</h2>
+    </div>
+    <div class="grid">
+        <div class="testimonial-card">
+            "A consultoria em LGPD da Figueredo trouxe a segurança jurídica que precisávamos para escalar nossa operação digital com confiança."
+            <span>— Mariana S., Diretora de Operações</span>
+        </div>
+        <div class="testimonial-card">
+            "Os dashboards em Power BI transformaram nossa reunião de diretoria. Agora decidimos com base em fatos e dados reais em tempo real."
+            <span>— Ricardo A., CEO Tech</span>
+        </div>
+        <div class="testimonial-card">
+            "A visão estratégica e econômica do Juny é um diferencial raro no mercado. Soluções práticas que geram ROI imediato."
+            <span>— Carlos M., Gerente Administrativo</span>
+        </div>
+    </div>
 </section>
-</main>
+
+<section id="contato" style="text-align: center; background: linear-gradient(rgba(194, 141, 78, 0.1), transparent);">
+    <h2>Pronto para elevar o patamar da sua empresa?</h2>
+    <p style="max-width: 600px; margin: 20px auto 40px; color: var(--text-muted);">Agende um diagnóstico estratégico gratuito e descubra como podemos transformar seus dados em vantagens competitivas reais.</p>
+    <a href="https://wa.me/5517981361149" class="btn">Agendar Diagnóstico</a>
+    <div style="margin-top: 40px; color: var(--text-muted);">
+      <p>(17) 98136-1149 | juny@figueredoconsultoria.com.br</p>
+    </div>
+</section>
+
 <footer>
-  <div class="container" style="text-align:center;">
-    <p>&copy; 2026 Figueredo Finanças e Tecnologia. Todos os direitos reservados.</p>
-    <p><em>Transformando dados em oportunidades.</em></p>
-  </div>
+    <div class="logo" style="margin-bottom: 30px;">FIGUEREDO</div>
+    <div class="footer-links">
+        <a href="#servicos">SOLUÇÕES</a>
+        <a href="#sobre">SOBRE</a>
+        <a href="#depoimentos">CASES</a>
+        <a href="#contato">CONTATO</a>
+    </div>
+    <p style="font-size: 0.8rem; color: #475569;">© 2026 Figueredo Finanças e Tecnologia. Transformando dados em oportunidades.</p>
 </footer>
+
 </body>
 </html>

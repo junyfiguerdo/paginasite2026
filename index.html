@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Figueredo Finanças e Tecnologia | Consultoria Estratégica Premium</title>
+    <!-- Favicon / Símbolo -->
+    <link rel="icon" type="image/png" href="simbolo.png">
     <style>
         :root {
             --bg-black: #000000;
@@ -25,128 +27,267 @@
 
         header {
             background: rgba(0, 0, 0, 0.95);
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 1rem 5%;
             position: fixed;
             width: 90%;
             top: 0;
             z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             border-bottom: 1px solid #222;
         }
 
-        .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: 2px; color: var(--text-main); }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+        }
 
         nav a {
             color: var(--text-main);
             text-decoration: none;
-            margin-left: 30px;
+            margin-left: 2rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            font-size: 0.8rem;
-            text-transform: uppercase;
             letter-spacing: 1px;
-            transition: 0.3s;
+            text-transform: uppercase;
+            transition: color 0.3s;
         }
-        nav a:hover { color: var(--accent); }
+
+        nav a:hover {
+            color: var(--accent);
+        }
 
         .hero {
-            padding: 220px 5% 120px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000 80%);
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            padding: 0 10%;
         }
 
-        .hero-tag { color: var(--accent); font-weight: 800; letter-spacing: 6px; margin-bottom: 25px; font-size: 0.9rem; text-transform: uppercase; }
-
         .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 900;
-            margin: 0;
-            line-height: 1.05;
-            text-transform: uppercase;
-            letter-spacing: -2px;
+            font-size: clamp(2rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--text-muted);
-            margin: 35px auto;
-            max-width: 850px;
-            font-weight: 400;
+            max-width: 800px;
+            margin-bottom: 2.5rem;
         }
 
-        .btn-premium {
+        .slogan {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .btn-primary {
             background-color: var(--accent);
-            color: #000;
-            padding: 20px 45px;
+            color: black;
+            padding: 1.2rem 2.5rem;
             text-decoration: none;
             font-weight: 800;
-            border-radius: 2px;
-            display: inline-block;
-            transition: 0.4s;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            transition: transform 0.3s, background 0.3s;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
-        .btn-premium:hover { transform: scale(1.05); filter: brightness(1.1); }
 
-        section { padding: 120px 5%; }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background-color: #f1c40f;
+        }
 
-        .section-header { margin-bottom: 80px; text-align: left; }
-        .section-header span { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; }
-        .section-header h2 { font-size: 3rem; font-weight: 900; margin: 15px 0 0; text-transform: uppercase; border-left: 6px solid var(--accent); padding-left: 25px; line-height: 1; }
+        section {
+            padding: 100px 5%;
+        }
 
-        .grid-premium {
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .section-title p {
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .grid-services {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
 
         .service-card {
             background: var(--card-bg);
-            padding: 60px;
-            border: 1px solid #1a1a1a;
-            transition: 0.5s;
+            padding: 3rem 2rem;
+            border: 1px solid #333;
+            transition: all 0.3s;
             position: relative;
             overflow: hidden;
         }
-        .service-card:hover { border-color: var(--accent); transform: translateY(-5px); }
-        .service-card::after { content: ""; position: absolute; bottom: 0; left: 0; width: 0; height: 3px; background: var(--accent); transition: 0.5s; }
-        .service-card:hover::after { width: 100%; }
 
-        .service-card h3 { color: var(--accent); font-size: 1.8rem; margin: 0 0 25px; text-transform: uppercase; font-weight: 900; }
-        .service-card p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 30px; }
+        .service-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
 
-        .service-card ul { padding: 0; list-style: none; }
-        .service-card li { margin-bottom: 18px; color: var(--text-main); font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; }
-        .service-card li::before { content: ""; width: 8px; height: 8px; background: var(--accent); display: inline-block; margin-right: 15px; }
+        .service-card h3 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
 
-        .about-section { background: var(--bg-dark); padding: 100px 5%; border-radius: 4px; }
-        .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 100px; align-items: center; }
-        
-        .about-content h2 { font-size: 4rem; font-weight: 900; margin: 0 0 40px; text-transform: uppercase; }
-        .about-content p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 25px; }
-        .about-content strong { color: var(--accent); }
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+            color: var(--text-muted);
+        }
 
-        .profile-img { width: 100%; filter: grayscale(100%) contrast(1.1); border-radius: 4px; border: 1px solid #333; }
+        .service-card li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
 
-        .cta-dark { text-align: center; background: #050505; border-top: 1px solid #1a1a1a; padding: 120px 5%; }
-        .cta-dark h2 { font-size: 3.5rem; font-weight: 900; margin-bottom: 30px; }
-        .cta-dark p { color: var(--text-muted); font-size: 1.2rem; margin-bottom: 50px; }
+        .service-card li::before {
+            content: "→";
+            margin-right: 10px;
+            color: var(--accent);
+        }
 
-        footer { padding: 60px 5%; border-top: 1px solid #111; text-align: center; background: #000; }
-        .footer-info { color: var(--text-muted); font-size: 0.9rem; letter-spacing: 1px; }
+        .impact-section {
+            background-color: var(--bg-dark);
+        }
 
-        @media (max-width: 1024px) {
-            .hero h1 { font-size: 3rem; }
-            .about-grid { grid-template-columns: 1fr; gap: 60px; }
-            .grid-premium { grid-template-columns: 1fr; }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: #111;
+            padding: 2.5rem;
+            border-left: 4px solid var(--accent);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+            background: #050505;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 500px;
+            background: url('https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80&w=1000');
+            background-size: cover;
+            background-position: center;
+            border: 1px solid var(--accent);
+        }
+
+        .about-content h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        footer {
+            padding: 80px 5% 40px;
+            background: #000;
+            border-top: 1px solid #222;
+            text-align: center;
+        }
+
+        .footer-logo {
+            height: 60px;
+            margin-bottom: 2rem;
+        }
+
+        .footer-contacts {
+            margin-bottom: 3rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(rgba(212, 175, 55, 0.1), transparent);
+            padding: 120px 5%;
+        }
+
+        @media (max-width: 768px) {
+            .about-section, .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            nav {
+                margin-top: 1rem;
+            }
+            nav a {
+                margin: 0 10px;
+            }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo">FIGUEREDO</div>
+    <div class="logo-container">
+        <!-- Logo e Símbolo no Header -->
+        <a href="#"><img src="logo.png" alt="Figueredo Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"></a>
+        <span style="display:none; font-weight:800; font-size:1.5rem; letter-spacing:2px;">FIGUEREDO</span>
+    </div>
     <nav>
         <a href="#servicos">Soluções</a>
         <a href="#impacto">Impacto</a>
@@ -154,21 +295,20 @@
     </nav>
 </header>
 
-<div class="hero">
-    <div class="hero-tag">Transformando dados em oportunidades</div>
-    <h1>Performance Estratégica <br> para Líderes de Visão</h1>
+<section class="hero">
+    <div class="slogan">Transformando dados em oportunidades</div>
+    <h1>PERFORMANCE ESTRATÉGICA <br>PARA LÍDERES DE VISÃO</h1>
     <p>Adequação à LGPD, Inteligência Financeira e Dashboards de Alta Performance. Unimos o rigor da economia à agilidade da tecnologia para blindar e escalar sua operação corporativa.</p>
-    <a href="https://wa.me/5517981361149" class="btn-premium">Agendar Diagnóstico Estratégico</a>
-</div>
+    <a href="https://wa.me/5517981361149" class="btn-primary">Agendar Diagnóstico Estratégico</a>
+</section>
 
-<!-- SERVIÇOS EM PRIMEIRO LUGAR -->
 <section id="servicos">
-    <div class="section-header">
-        <span>Soluções Corporativas & Governamentais</span>
-        <h2>Áreas de Especialidade</h2>
+    <div class="section-title">
+        <p>Expertise que Gera Valor</p>
+        <h2>Soluções Corporativas & Governamentais</h2>
     </div>
-    <div class="grid-premium">
-        <!-- LGPD -->
+    
+    <div class="grid-services">
         <div class="service-card">
             <h3>LGPD & DPO</h3>
             <p>Blindagem jurídica e governança de dados para empresas que valorizam a segurança e a confiança.</p>
@@ -178,9 +318,9 @@
                 <li>DPO as a Service (Encarregado Externo)</li>
             </ul>
         </div>
-        <!-- BI -->
+
         <div class="service-card">
-            <h3>BI & Analytics</h3>
+            <h3>BI & ANALYTICS</h3>
             <p>Dashboards dinâmicos em Power BI que eliminam a incerteza e entregam clareza total para decisões.</p>
             <ul>
                 <li>Painéis Financeiros & Operacionais</li>
@@ -188,9 +328,9 @@
                 <li>Treinamento em Cultura Data-Driven</li>
             </ul>
         </div>
-        <!-- GOVERNO -->
+
         <div class="service-card">
-            <h3>Órgãos Públicos</h3>
+            <h3>ÓRGÃOS PÚBLICOS</h3>
             <p>Consultoria técnica especializada para modernização e gestão eficiente da administração pública.</p>
             <ul>
                 <li>Projetos e Modernização Administrativa</li>
@@ -198,9 +338,9 @@
                 <li>Adequação LGPD no Setor Público</li>
             </ul>
         </div>
-        <!-- ESTRATEGIA -->
+
         <div class="service-card">
-            <h3>Finanças & Estratégia</h3>
+            <h3>FINANÇAS & ESTRATÉGIA</h3>
             <p>Consultoria econômica de alto nível para otimização de capital e maximização de resultados.</p>
             <ul>
                 <li>Planejamento Estratégico e OKRs</li>
@@ -211,53 +351,52 @@
     </div>
 </section>
 
-<section id="impacto" style="background: #050505;">
-    <div class="section-header" style="text-align: center;">
-        <h2 style="border: none; padding: 0;">Impacto Mensurável</h2>
+<section id="impacto" class="impact-section">
+    <div class="section-title">
+        <p>Cases de Sucesso</p>
+        <h2>Impacto Mensurável</h2>
     </div>
-    <div class="grid-premium">
-        <div style="text-align: center; padding: 40px;">
-            <p style="font-size: 1.5rem; font-style: italic; color: var(--text-muted);">"O Power BI transformou nossa gestão. Hoje decidimos com base em fatos reais e previsibilidade financeira."</p>
-            <p style="color: var(--accent); font-weight: 800; margin-top: 30px; letter-spacing: 2px;">— RICARDO A., CEO TECH</p>
+    <div class="testimonial-grid">
+        <div class="testimonial-card">
+            <p class="testimonial-text">"O Power BI transformou nossa gestão. Hoje decidimos com base em fatos reais e previsibilidade financeira."</p>
+            <p class="testimonial-author">— Ricardo A., CEO Tech</p>
         </div>
-        <div style="text-align: center; padding: 40px;">
-            <p style="font-size: 1.5rem; font-style: italic; color: var(--text-muted);">"A segurança jurídica trazida pela consultoria em LGPD permitiu que escalássemos nossa operação nacional."</p>
-            <p style="color: var(--accent); font-weight: 800; margin-top: 30px; letter-spacing: 2px;">— MARIANA S., DIRETORA DE OPS</p>
+        <div class="testimonial-card">
+            <p class="testimonial-text">"A segurança jurídica trazida pela consultoria em LGPD permitiu que escalássemos nossa operação nacional."</p>
+            <p class="testimonial-author">— Mariana S., Diretora de Ops</p>
         </div>
     </div>
 </section>
 
-<div class="cta-dark" id="contato">
+<section class="cta-section">
     <h2>Pronto para acelerar?</h2>
     <p>Fale diretamente com um especialista e descubra o próximo nível do seu negócio.</p>
-    <a href="https://wa.me/5517981361149" class="btn-premium">Falar no WhatsApp</a>
-</div>
+    <br>
+    <a href="https://wa.me/5517981361149" class="btn-primary">Falar no WhatsApp</a>
+</section>
 
-<!-- SOBRE EM ÚLTIMO LUGAR -->
-<section id="sobre">
-    <div class="about-section">
-        <div class="about-grid">
-            <div class="about-content">
-                <span>Fundador</span>
-                <h2>Juny Figueredo</h2>
-                <p>Economista com visão global e sólida experiência na intersecção entre <strong>finanças, tecnologia e gestão pública</strong>.</p>
-                <p>Formação de excelência: <strong>Mestrando em Gestão Financeira (Porto)</strong>, Especialista pela <strong>FGV</strong> e Certificações Internacionais em <strong>LGPD, DPO e Liderança por Harvard</strong>.</p>
-                <p>Nossa abordagem une o rigor acadêmico à aplicação prática imediata, transformando complexidade em resultados diretos.</p>
-            </div>
-            <div>
-                <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1974" alt="Liderança Corporativa" class="profile-img">
-            </div>
-        </div>
+<section id="sobre" class="about-section">
+    <div class="about-image"></div>
+    <div class="about-content">
+        <p style="color: var(--accent); font-weight: 700;">Fundador</p>
+        <h2>JUNY FIGUEREDO</h2>
+        <p>Economista com visão global e sólida experiência na intersecção entre <strong>finanças, tecnologia e gestão pública</strong>.</p>
+        <p>Formação de excelência: <strong>Mestrando em Gestão Financeira (Porto)</strong>, Especialista pela <strong>FGV</strong> e Certificações Internacionais em <strong>LGPD, DPO e Liderança por Harvard</strong>.</p>
+        <p>Nossa abordagem une o rigor acadêmico à aplicação prática imediata, transformando complexidade em resultados diretos.</p>
     </div>
 </section>
 
 <footer>
-    <div class="logo" style="margin-bottom: 25px;">FIGUEREDO</div>
-    <div class="footer-info">
-        (17) 98136-1149 | juny@figueredoconsultoria.com.br <br><br>
-        SÃO PAULO | BRASIL <br>
-        © 2026 FIGUEREDO FINANÇAS E TECNOLOGIA.
+    <div class="footer-logo-container">
+        <!-- Logo no Footer -->
+        <img src="logo.png" alt="Figueredo Logo" class="footer-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <h2 style="display:none; color:white; letter-spacing:5px;">FIGUEREDO</h2>
     </div>
+    <div class="footer-contacts">
+        <p>(17) 98136-1149 | juny@figueredoconsultoria.com.br</p>
+        <p>SÃO PAULO | BRASIL</p>
+    </div>
+    <p style="font-size: 0.7rem; color: #555;">© 2026 FIGUEREDO FINANÇAS E TECNOLOGIA. TODOS OS DIREITOS RESERVADOS.</p>
 </footer>
 
 </body>

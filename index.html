@@ -47,7 +47,6 @@
         .logo-img {
             height: 45px;
             width: auto;
-            /* Inverte a cor para aparecer no fundo preto caso o original seja escuro */
             filter: brightness(0) invert(1);
         }
 
@@ -113,6 +112,7 @@
             border-radius: 4px;
             transition: transform 0.3s, background 0.3s;
             text-transform: uppercase;
+            display: inline-block;
         }
 
         .btn-primary:hover {
@@ -227,12 +227,52 @@
             font-size: 0.8rem;
         }
 
+        /* Formulário de Contato */
+        .contact-section {
+            background: #050505;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 4rem;
+            border: 1px solid #222;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: #000;
+            border: 1px solid #333;
+            color: white;
+            font-family: inherit;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
         .about-section {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
             gap: 60px;
             align-items: center;
-            background: #050505;
+            background: var(--bg-black);
         }
 
         .about-image {
@@ -273,25 +313,12 @@
             font-size: 0.9rem;
         }
 
-        .cta-section {
-            text-align: center;
-            background: linear-gradient(rgba(212, 175, 55, 0.1), transparent);
-            padding: 120px 5%;
-        }
-
         @media (max-width: 768px) {
             .about-section, .testimonial-grid {
                 grid-template-columns: 1fr;
             }
-            header {
-                flex-direction: column;
-                padding: 1rem;
-            }
-            nav {
-                margin-top: 1rem;
-            }
-            nav a {
-                margin: 0 10px;
+            .contact-container {
+                padding: 2rem;
             }
         }
     </style>
@@ -306,6 +333,7 @@
     <nav>
         <a href="#servicos">Soluções</a>
         <a href="#impacto">Impacto</a>
+        <a href="#contato">Contato</a>
         <a href="#sobre">Sobre</a>
     </nav>
 </header>
@@ -314,7 +342,7 @@
     <div class="slogan">Transformando dados em oportunidades</div>
     <h1>PERFORMANCE ESTRATÉGICA <br>PARA LÍDERES DE VISÃO</h1>
     <p>Adequação à LGPD, Inteligência Financeira e Dashboards de Alta Performance. Unimos o rigor da economia à agilidade da tecnologia para blindar e escalar sua operação corporativa.</p>
-    <a href="https://wa.me/5517981361149" class="btn-primary">Agendar Diagnóstico Estratégico</a>
+    <a href="#contato" class="btn-primary">Agendar Diagnóstico Estratégico</a>
 </section>
 
 <section id="servicos">
@@ -324,6 +352,7 @@
     </div>
     
     <div class="grid-services">
+        <!-- Serviços originais mantidos -->
         <div class="service-card">
             <h3>LGPD & DPO</h3>
             <p>Blindagem jurídica e governança de dados para empresas que valorizam a segurança e a confiança.</p>
@@ -355,8 +384,7 @@
         </div>
 
         <div class="service-card">
-            <h3>DESENVOLVIMENTO URBANO</h3>
-            <h3>PROJETOS PARA CIDADES</h3>
+            <h3>CIDADES INTELIGENTES</h3>
             <p>Estratégias de desenvolvimento econômico sustentável para municípios e regiões.</p>
             <ul>
                 <li>Planos Diretores de Desenvolvimento</li>
@@ -365,29 +393,20 @@
             </ul>
         </div>
 
+        <!-- NOVOS SERVIÇOS SOLICITADOS -->
         <div class="service-card">
-            <h3>FINANÇAS & ESTRATÉGIA</h3>
-            <p>Consultoria econômica de alto nível para otimização de capital e maximização de resultados.</p>
+            <h3>PALESTRAS & WORKSHOPS</h3>
+            <p>Capacitação de alto impacto para lideranças e equipes corporativas sobre as tendências do mercado.</p>
             <ul>
-                <li>Planejamento Estratégico e OKRs</li>
-                <li>Gestão de Riscos e Cenários</li>
-                <li>Workshops de Finanças Corporativas</li>
-            </ul>
-        </div>
-
-        <div class="service-card">
-            <h3>PALESTRAS</h3>
-            <p>Inspiração e conhecimento técnico de ponta para eventos corporativos e acadêmicos.</p>
-            <ul>
-                <li>Inovação e Futuro do Trabalho</li>
-                <li>Cenários Econômicos Globais</li>
-                <li>Cultura de Proteção de Dados</li>
+                <li>Workshops de Liderança Estratégica</li>
+                <li>Palestras de Inovação e LGPD</li>
+                <li>Seminários de Educação Financeira</li>
             </ul>
         </div>
 
         <div class="service-card">
             <h3>GESTÃO DO CONHECIMENTO</h3>
-            <p>Estruturação de processos para retenção de capital intelectual e aumento da eficiência.</p>
+            <p>Estruturação de processos para retenção de capital intelectual e aumento da eficiência operacional.</p>
             <ul>
                 <li>Mapeamento de Processos Críticos</li>
                 <li>Curadoria de Conteúdo Educativo</li>
@@ -414,11 +433,36 @@
     </div>
 </section>
 
-<section class="cta-section">
-    <h2>Pronto para acelerar?</h2>
-    <p>Fale diretamente com um especialista e descubra o próximo nível do seu negócio.</p>
-    <br>
-    <a href="https://wa.me/5517981361149" class="btn-primary">Falar no WhatsApp</a>
+<!-- NOVA SEÇÃO: FORMULÁRIO DE CONTATO -->
+<section id="contato" class="contact-section">
+    <div class="section-title">
+        <p>Pronto para o próximo nível?</p>
+        <h2>Diagnóstico Estratégico</h2>
+    </div>
+    <div class="contact-container">
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label>Nome Completo</label>
+                <input type="text" name="name" placeholder="Como devemos chamá-lo?" required>
+            </div>
+            <div class="form-group">
+                <label>E-mail Corporativo</label>
+                <input type="email" name="email" placeholder="seu@empresa.com.br" required>
+            </div>
+            <div class="form-group">
+                <label>WhatsApp / Telefone</label>
+                <input type="tel" name="phone" placeholder="(00) 00000-0000">
+            </div>
+            <div class="form-group">
+                <label>Como podemos ajudar?</label>
+                <textarea name="message" rows="5" placeholder="Descreva brevemente sua necessidade estratégica..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Enviar Mensagem</button>
+        </form>
+        <p style="text-align: center; margin-top: 2rem; font-size: 0.8rem; color: var(--text-muted);">
+            Ou se preferir, <a href="https://wa.me/5517981361149" style="color: var(--accent);">fale agora pelo WhatsApp</a>.
+        </p>
+    </div>
 </section>
 
 <section id="sobre" class="about-section">
